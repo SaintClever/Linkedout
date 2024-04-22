@@ -1,35 +1,39 @@
+import os
 from database import db_connection
 from himalayas import himalayas_jobs
 from psycopg2.extras import RealDictCursor
 
 
 def insert_job_data(db_connection, himalayas_jobs):
+    file_path = os.path.abspath(__file__)
+    file_name = os.path.basename(file_path)
+
     conn = db_connection
     cursor = conn.cursor(cursor_factory=RealDictCursor)
     query = """
     INSERT INTO jobs (
-      title_text,
-      title_href,
-      company_text,
+      job_title,
+      job_href,
+      company_title,
       company_href
     ) VALUES (%s, %s, %s, %s)
     """
 
     for data in himalayas_jobs:
-        data["title_text"] = data["title_text"][:50]
         cursor.execute(
             query,
             (
-                data["title_text"],
-                data["title_href"],
-                data["company_text"],
+                data["job_title"],
+                data["job_href"],
+                data["company_title"],
                 data["company_href"],
             ),
         )
     conn.commit()
     cursor.close()
     conn.close()
-    print("Data inserted successfully")
+
+    print("Data inserted successfully from:", file_name)
 
 
 insert_job_data(db_connection, himalayas_jobs)
