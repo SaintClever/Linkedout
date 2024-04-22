@@ -1,0 +1,3 @@
+from himalayas.himalayas_to_db import insert_himalayas
+
+insert_himalayas

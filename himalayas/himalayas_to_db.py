@@ -1,6 +1,6 @@
 import os
-from database import db_connection
-from himalayas import himalayas_jobs
+from database.database import db_connection
+from .scrape_himalayas import himalayas_jobs
 from psycopg2.extras import RealDictCursor
 
 
@@ -36,4 +36,4 @@ def insert_job_data(db_connection, himalayas_jobs):
     print("Data inserted successfully from:", file_name)
 
 
-insert_job_data(db_connection, himalayas_jobs)
+insert_himalayas = insert_job_data(db_connection, himalayas_jobs)

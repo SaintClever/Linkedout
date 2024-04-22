@@ -1,4 +1,4 @@
-from invoke_request import himalayas
+from request_urls.invoke_request import himalayas
 from bs4 import BeautifulSoup
 
 
@@ -19,6 +19,7 @@ def parse_data(html_content):
         
         job_data.append({"job_title": job_title, "job_href": job_href, "company_title": company_title, "company_href": company_href})
 
+    print(job_data)
     return job_data
 
 himalayas_jobs = parse_data(himalayas)

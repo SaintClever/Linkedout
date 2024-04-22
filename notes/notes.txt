@@ -1,0 +1,6 @@
+f"https://himalayas.app/jobs/countries/{location}/{job_title}"
+f"https://jobs.smartrecruiters.com/?keyword={job_title}{location}"
+f"https://www.roberthalf.com/us/en/jobs/{location}/{job_title}"
+
+Create models:
+python3 -m models.models
