@@ -1,9 +1,10 @@
-from database import connect_to_database
+from database import db_connection
+from psycopg2.extras import RealDictCursor
 
 
 def create_jobs_table():
-    conn = connect_to_database()
-    cursor = conn.cursor()
+    conn = db_connection
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
 
     create_table_query = """
     CREATE TABLE IF NOT EXISTS jobs (
@@ -20,3 +21,6 @@ def create_jobs_table():
     conn.commit()
     cursor.close()
     conn.close()
+
+
+create_jobs_table()

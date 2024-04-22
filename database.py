@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 import psycopg2
-from psycopg2.extras import RealDictCursor
 
 load_dotenv(".env")
 
@@ -11,7 +10,7 @@ user: str = os.getenv("USER")
 password: str = os.getenv("PASSWORD")
 
 
-def connect_to_database():
+def connect_to_db():
     conn = psycopg2.connect(
         host=host,
         database=database,
@@ -19,3 +18,6 @@ def connect_to_database():
         password=password,
     )
     return conn
+
+
+db_connection = connect_to_db()

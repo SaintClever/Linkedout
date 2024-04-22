@@ -21,4 +21,4 @@ def parse_data(html_content):
 
     return job_data
 
-print(parse_data(himalayas))
+himalayas_jobs = parse_data(himalayas)
