@@ -12,21 +12,25 @@ def insert_job_data(db_connection, himalayas_jobs):
     cursor = conn.cursor(cursor_factory=RealDictCursor)
     query = """
     INSERT INTO jobs (
-      job_title,
-      job_href,
-      company_title,
-      company_href
-    ) VALUES (%s, %s, %s, %s)
+        company_name,
+        job_title,
+        job_href,
+        location,
+        starting_salary,
+        max_salary,
+    ) VALUES (%s, %s, %s, %s, %s, %s)
     """
 
     for data in himalayas_jobs:
         cursor.execute(
             query,
             (
+                data["company_name"],
                 data["job_title"],
                 data["job_href"],
-                data["company_title"],
-                data["company_href"],
+                data["location"],
+                data["starting_salary"],
+                data["max_salary"],
             ),
         )
     conn.commit()

@@ -2,5 +2,19 @@ f"https://himalayas.app/jobs/countries/{location}/{job_title}"
 f"https://jobs.smartrecruiters.com/?keyword={job_title}{location}"
 f"https://www.roberthalf.com/us/en/jobs/{location}/{job_title}"
 
+Commonality between URL sources:
+- company name
+- job title
+- job href
+- location
+- only jobs with salaries:
+  - salary
+
+Pandas:
+min salary, max salary, avg salary
+
 Create models:
 python3 -m models.models
+
+roberthalf:
+Set all locations to US

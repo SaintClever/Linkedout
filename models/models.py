@@ -9,10 +9,12 @@ def create_jobs_table():
     create_table_query = """
     CREATE TABLE IF NOT EXISTS jobs (
       id SERIAL PRIMARY KEY,
-      job_title VARCHAR(255),
-      job_href VARCHAR(255),
-      company_title VARCHAR(255),
-      company_href VARCHAR(255),
+      company_name VARCHAR(100),
+      job_title VARCHAR(100),
+      job_href VARCHAR(100),
+      location VARCHAR(100),
+      starting_salary INTEGER,
+      max_salary INTEGER,
       scrape_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     """
