@@ -15,27 +15,29 @@ def parse_data(html_content):
 
         if (country_code != None
         and salary != None
-        and "Salary:" in salary.get_text()):
+        and "salary:" in salary.get_text().casefold()):
 
             company_name = job.find("a", class_="inline-flex").get_text()
 
             title = job.find("a", class_="text-xl")
             job_title = title.get_text()
             job_href = f"https://himalayas.app{title.get("href")}"
-            
+
             location = country_code.get("title").upper()
 
             salary = job.find("p", class_="inline-flex")
-            starting_text = salary.get_text()
+            salary_text = salary.get_text()
 
-            starting_salary = int(starting_text[
-                starting_text.find(':') + 2:
-                starting_text.find('k-')
+            currency = salary_text[salary_text.rfind(" ") + 1:]
+
+            starting_salary = int(salary_text[
+                salary_text.find(':') + 2:
+                salary_text.find('k-')
             ] + "000")
 
-            max_salary = int(starting_text[
-                starting_text.find('k-') + 2:
-                starting_text.find('k ')
+            max_salary = int(salary_text[
+                salary_text.find('k-') + 2:
+                salary_text.find('k ')
             ] + "000")
 
             job_data.append({
@@ -43,6 +45,7 @@ def parse_data(html_content):
                 "job_title": job_title,
                 "job_href": job_href,
                 "location": location,
+                "currency": currency,
                 "starting_salary": starting_salary,
                 "max_salary": max_salary
             })

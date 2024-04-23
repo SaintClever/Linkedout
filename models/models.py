@@ -13,6 +13,7 @@ def create_jobs_table():
       job_title VARCHAR(200),
       job_href VARCHAR(200),
       location VARCHAR(200),
+      currency VARCHAR(20),
       starting_salary INTEGER,
       max_salary INTEGER,
       scrape_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP

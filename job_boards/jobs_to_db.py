@@ -1,7 +1,9 @@
 import os
 from database.database import db_connection
-from .scrape_himalayas import himalayas_jobs
+from .himalayas.scrape_himalayas import himalayas_jobs
 from psycopg2.extras import RealDictCursor
+
+print(himalayas_jobs)
 
 
 def insert_job_data(db_connection, himalayas_jobs):
@@ -16,9 +18,10 @@ def insert_job_data(db_connection, himalayas_jobs):
         job_title,
         job_href,
         location,
+        currency,
         starting_salary,
         max_salary
-    ) VALUES (%s, %s, %s, %s, %s, %s)
+    ) VALUES (%s, %s, %s, %s, %s, %s, %s)
     """
 
     for data in himalayas_jobs:
@@ -29,6 +32,7 @@ def insert_job_data(db_connection, himalayas_jobs):
                 data["job_title"],
                 data["job_href"],
                 data["location"],
+                data["currency"],
                 data["starting_salary"],
                 data["max_salary"],
             ),

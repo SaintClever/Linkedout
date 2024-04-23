@@ -7,6 +7,7 @@ Commonality between URL sources and Model structure:
 - job title
 - job href
 - location: only jobs with a location:
+- currency
 - salary: only jobs with salaries:
   - starting salary
   - max salary
@@ -15,9 +16,13 @@ Create models:
 python3 -m models.models
 
 Insert himalayas:
-python3 -m himalayas.himalayas_to_db
+python3 -m job_boards.himalayas.jobs_to_db
 
 Insert roberhalf:
+canceled
+
+Insert smartrecruiters:
+cnacneled
 
 himalayas and roberthalf:
 Set all locations to US... Maybe
