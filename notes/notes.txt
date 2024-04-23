@@ -1,20 +1,29 @@
 f"https://himalayas.app/jobs/countries/{location}/{job_title}"
-f"https://jobs.smartrecruiters.com/?keyword={job_title}{location}"
 f"https://www.roberthalf.com/us/en/jobs/{location}/{job_title}"
+f"https://jobs.smartrecruiters.com/?keyword={job_title}{location}"
 
-Commonality between URL sources:
+Commonality between URL sources and Model structure:
 - company name
 - job title
 - job href
-- location
-- only jobs with salaries:
-  - salary
-
-Pandas:
-min salary, max salary, avg salary
+- location: only jobs with a location:
+- salary: only jobs with salaries:
+  - starting salary
+  - max salary
 
 Create models:
 python3 -m models.models
 
-roberthalf:
-Set all locations to US
+Insert himalayas:
+python3 -m himalayas.himalayas_to_db
+
+Insert roberhalf:
+
+himalayas and roberthalf:
+Set all locations to US... Maybe
+
+Pandas:
+min salary, max salary, avg salary, standard deviation
+
+Matplotlib:
+graphs

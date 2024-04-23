@@ -17,7 +17,7 @@ def insert_job_data(db_connection, himalayas_jobs):
         job_href,
         location,
         starting_salary,
-        max_salary,
+        max_salary
     ) VALUES (%s, %s, %s, %s, %s, %s)
     """
 
