@@ -9,18 +9,25 @@ load_dotenv(".env")
 # user: str = os.getenv("USER")
 # password: str = os.getenv("PASSWORD")
 
+# engine = {
+#     "host": host,
+#     "database": database,
+#     "user": user,
+#     "password": password,
+# }
 
 # def connect_to_db():
 #     conn = psycopg2.connect(
-#         host=host,
-#         database=database,
-#         user=user,
-#         password=password,
+#         host=engine["host"],
+#         database=engine["database"],
+#         user=engine["user"],
+#         password=engine["password"],
 #     )
 #     return conn
 
 
 # db_connection = connect_to_db()
+
 
 # neon.tech psql
 pguser: str = os.getenv("PGUSER")
@@ -30,12 +37,20 @@ pgpassword: str = os.getenv("PGPASSWORD")
 # pgport: str = os.getenv("PGPORT")
 
 
+engine = {
+    "pguser": pguser,
+    "pghost": pghost,
+    "pgdatabase": pgdatabase,
+    "pgpassword": pgpassword,
+}
+
+
 def connect_to_db():
     conn = psycopg2.connect(
-        user=pguser,
-        host=pghost,
-        database=pgdatabase,
-        password=pgpassword,
+        user=engine["pguser"],
+        host=engine["pghost"],
+        database=engine["pgdatabase"],
+        password=engine["pgpassword"],
         # port=pgport,
     )
     return conn

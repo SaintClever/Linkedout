@@ -18,6 +18,12 @@ python3 -m models.models
 Insert himalayas, roberhalf, etc:
 python3 -m job_boards.jobs_to_db
 
+Run pandas
+python3 -m pandas_data.data_manipulation
+
+Run models and jobs subprocesses:
+python3 -m run_subprocess.py
+
 Insert roberhalf:
 canceled
 
