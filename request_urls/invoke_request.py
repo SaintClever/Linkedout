@@ -5,7 +5,7 @@ from request_urls.request_url import request_url, url
 himalayas, roberthalf = ["" for i in range(2)]
 
 try:
-  for i in range(1, 3):
+  for i in range(1, 101):
       himalayas_path = f"{url["himalayas"]}?page={i}"
       himalayas += request_url(himalayas_path)
 
