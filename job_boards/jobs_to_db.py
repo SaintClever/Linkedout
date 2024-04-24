@@ -3,8 +3,6 @@ from database.database import db_connection
 from .himalayas.scrape_himalayas import himalayas_jobs
 from psycopg2.extras import RealDictCursor
 
-print(himalayas_jobs)
-
 
 def insert_job_data(db_connection, himalayas_jobs):
     file_path = os.path.abspath(__file__)
