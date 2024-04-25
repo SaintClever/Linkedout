@@ -2,6 +2,7 @@ f"https://himalayas.app/jobs/countries/{location}/{job_title}"
 f"https://www.roberthalf.com/us/en/jobs/{location}/{job_title}"
 f"https://jobs.smartrecruiters.com/?keyword={job_title}{location}"
 
+
 Commonality between URL sources and Model structure:
 - company name
 - job title
@@ -11,6 +12,7 @@ Commonality between URL sources and Model structure:
 - salary: only jobs with salaries:
   - starting salary
   - max salary
+
 
 Create models:
 python3 -m models.models
@@ -33,8 +35,15 @@ cnacneled
 himalayas and roberthalf:
 Set all locations to US... Maybe
 
+
 Pandas:
 min salary, max salary, avg salary, standard deviation
 
-Matplotlib:
-graphs
+
+Data_analysis:
+- pandas
+  python3 -m data_analysis.pandas_data.data_manipulation
+  python3 -m data_analysis.pandas_data.data_to_csv
+
+- Matplotlib:
+  python3 data_analysis/matplotlib_visuals/data_visualization.py
