@@ -46,5 +46,4 @@ Data_analysis:
   python3 -m data_analysis.pandas_data.data_to_csv
 
 - Matplotlib:
-  python3 data_analysis/matplotlib_visuals/data_visualization.py
   python3 -m data_analysis.matplotlib_visuals.plots

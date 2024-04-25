@@ -10,7 +10,7 @@ company_names, job_titles, locations, currencies, starting_salaries, max_salarie
 ]
 count = 0
 
-while count != 25:
+while count != 25:  # controls the number of rows in charts displayed
     company_names.append(df["company_name"][count])
     job_titles.append(df["job_title"][count])
     locations.append(df["location"][count])
