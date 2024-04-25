@@ -14,20 +14,3 @@ def request_data_to_dataframe(connection):
 
 df = request_data_to_dataframe(connection)
 # print(df.head())
-
-# Aggregated_data
-def aggregate_data(dataframe):
-    aggregated_df = (
-        dataframe.groupby("location")
-        .agg({"max_salary": ["sum", "mean", "max", "std"]})
-        .fillna(0)
-        .reset_index()
-    )
-
-    aggregated_df["max_salary"] = aggregated_df["max_salary"].round(2)
-    
-    return aggregated_df
-
-
-df_aggregated = aggregate_data(df)
-print(df_aggregated)

@@ -1,5 +1,6 @@
 import random
-from data_visuals import colors, df
+from .colors import colors
+from data_analysis.pandas_data.data_to_csv import df
 import matplotlib.pyplot as plt
 
 
@@ -41,7 +42,9 @@ def bar_plot(df):
     plt.title("Max Salaries for Different Job Titles", fontsize=10)
     plt.grid(axis="x", linestyle="--", alpha=0.7)
     plt.tight_layout()
-    plt.savefig("data_analysis/matplotlib_visuals/images/bar_plot.png")
+    plt.savefig(
+        "data_analysis/matplotlib_visuals/images/bar_plot.png", bbox_inches="tight"
+    )
     plt.show()
     plt.close()
 

@@ -47,3 +47,4 @@ Data_analysis:
 
 - Matplotlib:
   python3 data_analysis/matplotlib_visuals/data_visualization.py
+  python3 -m data_analysis.matplotlib_visuals.plots
