@@ -10,6 +10,15 @@ def line_plot(df):
     plt.plot(
         df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
         df["max_salaries"],
+        label="Max Salaries",
+        color=random.choice(colors),
+        marker="o",
+        linestyle="-",
+    )
+    plt.plot(
+        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
+        df["starting_salaries"],
+        label="Starting Salaries",
         color=random.choice(colors),
         marker="o",
         linestyle="-",
@@ -20,6 +29,7 @@ def line_plot(df):
     plt.title("Max Salaries for Different Job Titles", fontsize=10)
     plt.grid(axis="y", linestyle="--", alpha=0.7)
     plt.tight_layout()
+    plt.legend()
     plt.savefig(
         "data_analysis/matplotlib_visuals/images/line_plot.png", bbox_inches="tight"
     )
@@ -33,6 +43,14 @@ def bar_plot(df):
     plt.bar(
         df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
         df["max_salaries"],
+        label="Max Salaries",
+        color=random.choice(colors),
+        linestyle="-",
+    )
+    plt.bar(
+        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
+        df["starting_salaries"],
+        label="Starting Salaries",
         color=random.choice(colors),
         linestyle="-",
     )
@@ -42,6 +60,7 @@ def bar_plot(df):
     plt.title("Max Salaries for Different Job Titles", fontsize=10)
     plt.grid(axis="x", linestyle="--", alpha=0.7)
     plt.tight_layout()
+    plt.legend()
     plt.savefig(
         "data_analysis/matplotlib_visuals/images/bar_plot.png", bbox_inches="tight"
     )
@@ -58,6 +77,13 @@ def barh_plot(df):
     plt.barh(
         df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
         df["max_salaries"],
+        label="Max Salaries",
+        color=random.choice(colors),
+    )
+    plt.barh(
+        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
+        df["starting_salaries"],
+        label="Starting Salaries",
         color=random.choice(colors),
     )
     plt.xlabel("Max Salaries Based on Country Code", fontsize=10)
@@ -66,6 +92,7 @@ def barh_plot(df):
     plt.gca().invert_yaxis()  # Invert y-axis to have the highest salary at the top
     plt.grid(axis="x", linestyle="--", alpha=0.7)
     plt.tight_layout()
+    plt.legend()
     plt.savefig(
         "data_analysis/matplotlib_visuals/images/barh_plot.png", bbox_inches="tight"
     )
