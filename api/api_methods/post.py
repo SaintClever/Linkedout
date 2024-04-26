@@ -2,7 +2,7 @@ import os
 from psycopg2.extras import RealDictCursor
 
 
-def insert_job_data(db_connection, user_jobs):
+def post(db_connection, data):
     file_path = os.path.abspath(__file__)
     file_name = os.path.basename(file_path)
 
@@ -23,13 +23,13 @@ def insert_job_data(db_connection, user_jobs):
     cursor.execute(
         query,
         (
-            user_jobs["company_name"],
-            user_jobs["job_title"],
-            user_jobs["job_href"],
-            user_jobs["location"],
-            user_jobs["currency"],
-            user_jobs["starting_salary"],
-            user_jobs["max_salary"],
+            data["company_name"],
+            data["job_title"],
+            data["job_href"],
+            data["location"],
+            data["currency"],
+            data["starting_salary"],
+            data["max_salary"],
         ),
     )
     conn.commit()

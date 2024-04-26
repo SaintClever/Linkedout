@@ -50,7 +50,7 @@ Data_analysis:
 
 
 Flask:
-
+  - python3 -m api.app
 # {
 #     "company_name": "linkedout",
 #     "job_title": "Python Developer",
