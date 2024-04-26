@@ -6,7 +6,7 @@ df.to_csv("data_analysis/pandas_data/processed_job_data.csv", index=False)
 df = pd.read_csv("data_analysis/pandas_data/processed_job_data.csv")
 
 company_names, job_titles, locations, currencies, starting_salaries, max_salaries = [
-    [] for i in range(6)
+    [] for _ in range(6)
 ]
 count = 0
 

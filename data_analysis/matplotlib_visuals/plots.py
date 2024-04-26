@@ -25,7 +25,7 @@ def line_plot(df):
     )
     plt.xticks(rotation=45, ha="right")
     plt.xlabel("Max Salaries Based on Country Code", fontsize=10)
-    plt.ylabel("Job Title", fontsize=10)
+    plt.ylabel("Companies - Jobs - Locations", fontsize=10)
     plt.title("Max Salaries for Different Job Titles", fontsize=10)
     plt.grid(axis="y", linestyle="--", alpha=0.7)
     plt.tight_layout()
@@ -56,7 +56,7 @@ def bar_plot(df):
     )
     plt.xticks(rotation=80)
     plt.xlabel("Max Salaries Based on Country Code", fontsize=10)
-    plt.ylabel("Job Title", fontsize=10)
+    plt.ylabel("Companies - Jobs - Locations", fontsize=10)
     plt.title("Max Salaries for Different Job Titles", fontsize=10)
     plt.grid(axis="x", linestyle="--", alpha=0.7)
     plt.tight_layout()
@@ -87,7 +87,7 @@ def barh_plot(df):
         color=random.choice(colors),
     )
     plt.xlabel("Max Salaries Based on Country Code", fontsize=10)
-    plt.ylabel("Job Title", fontsize=10)
+    plt.ylabel("Companies - Jobs - Locations", fontsize=10)
     plt.title("Max Salaries for Different Job Titles", fontsize=10)
     plt.gca().invert_yaxis()  # Invert y-axis to have the highest salary at the top
     plt.grid(axis="x", linestyle="--", alpha=0.7)

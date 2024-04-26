@@ -1,13 +1,14 @@
-from _typeshed import Incomplete
 import io
 from country.codes import country_codes
 from currency.codes import currency_codes
 from database.database import db_connection
 from .api_methods.post import post
 from .api_methods.get import create_salary_plot
+from flask import Flask, request, jsonify, send_file
+import matplotlib
 
-# from data_analysis.matplotlib_visuals.plots import line_plot, bar_plot, barh_plot
-from flask import Flask, request, jsonify
+matplotlib.use("Agg")  # Set the backend before importing pyplot / Needed for send_file
+
 
 app = Flask(__name__)
 
@@ -41,15 +42,12 @@ def save_data():
 @app.route("/job_salaries", methods=["GET"])
 def job_salaries():
     # Generate and save the plot to a bytes buffer
-    buffer = io.BytesIO()
-    print(buffer)
-    # line_plot(f"{buffer}.png")
-    # buffer.seek(0)
-
-    # print(buffer)
+    buf = io.BytesIO()
+    create_salary_plot().savefig(buf, format="png")
+    buf.seek(0)
 
     # Send the buffer as a response
-    # return send_file(buffer, mimetype="image/png")
+    return send_file(buf, mimetype="image/png")
 
 
 if __name__ == "__main__":
