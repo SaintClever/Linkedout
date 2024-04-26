@@ -4,7 +4,7 @@ from .himalayas.scrape_himalayas import himalayas_jobs
 from psycopg2.extras import RealDictCursor
 
 
-def insert_job_data(db_connection, himalayas_jobs):
+def insert_job_data(db_connection, job_board):
     file_path = os.path.abspath(__file__)
     file_name = os.path.basename(file_path)
 
@@ -22,7 +22,7 @@ def insert_job_data(db_connection, himalayas_jobs):
     ) VALUES (%s, %s, %s, %s, %s, %s, %s)
     """
 
-    for data in himalayas_jobs:
+    for data in job_board:
         cursor.execute(
             query,
             (

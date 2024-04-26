@@ -47,3 +47,16 @@ Data_analysis:
 
 - Matplotlib:
   python3 -m data_analysis.matplotlib_visuals.plots
+
+
+Flask:
+
+# {
+#     "company_name": "linkedout",
+#     "job_title": "Python Developer",
+#     "job_href": "https://www.linkedout.com/",
+#     "location": "Remote",
+#     "currency": "USD",
+#     "starting_salary": 100000,
+#     "max_salary": 750000
+# }
