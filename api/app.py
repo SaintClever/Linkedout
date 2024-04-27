@@ -3,11 +3,12 @@ from country.codes import country_codes
 from currency.codes import currency_codes
 from database.database import db_connection
 from .api_methods.post import post
-from .api_methods.get import create_salary_plot
+from .api_methods.get_method.get import salary_plot
 from flask import Flask, request, jsonify, send_file
 import matplotlib
 
-matplotlib.use("Agg")  # Set the backend before importing pyplot / Needed for send_file
+# Set the backend before importing pyplot / Needed for send_file
+matplotlib.use("Agg")
 app = Flask(__name__)
 
 
@@ -16,8 +17,10 @@ def save_data():
     data = request.json
 
     try:
-        # Validate data format
-        # Ensure inserted locations and country codes are within country_codes and currency_codes
+        """
+        Ensure inserted locations and country codes
+        are within country_codes and currency_codes
+        """
         if (
             request.is_json
             and data.get("location").casefold() in country_codes
@@ -36,12 +39,11 @@ def save_data():
         return jsonify({"error": f"Invalid data provided: {e}"}), 400
 
 
-# NOTE: Incomplete
 @app.route("/job_salaries", methods=["GET"])
 def job_salaries():
     # Generate and save the plot to a bytes buffer
     buf = io.BytesIO()
-    create_salary_plot().savefig(buf, format="png")
+    salary_plot.savefig(buf, format="png")
     buf.seek(0)
 
     # Send the buffer as a response

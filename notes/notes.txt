@@ -51,12 +51,13 @@ Data_analysis:
 
 Flask:
   - python3 -m api.app
-# {
-#     "company_name": "linkedout",
-#     "job_title": "Python Developer",
-#     "job_href": "https://www.linkedout.com/",
-#     "location": "Remote",
-#     "currency": "USD",
-#     "starting_salary": 100000,
-#     "max_salary": 750000
-# }
+  
+  # {
+  #     "company_name": "linkedout",
+  #     "job_title": "Python Developer",
+  #     "job_href": "https://www.linkedout.com/",
+  #     "location": "Remote",
+  #     "currency": "USD",
+  #     "starting_salary": 100000,
+  #     "max_salary": 750000
+  # }
