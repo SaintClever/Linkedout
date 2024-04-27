@@ -33,7 +33,7 @@ def post(db_connection, data):
         ),
     )
     conn.commit()
-    cursor.close()
-    conn.close()
+    # cursor.close()
+    # conn.close()
 
     print("Data inserted successfully from:", file_name)

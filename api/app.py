@@ -1,21 +1,42 @@
-import io, base64
+import os, io, base64
+from dotenv import load_dotenv
 from country.codes import country_codes
 from currency.codes import currency_codes
 from database.database import db_connection
 from .api_methods.post import post
 from .api_methods.get_method.get import salary_plot
 from .api_methods.get_method.generate_df import df
-from flask import Flask, request, jsonify, send_file, render_template
+from flask import Flask, request, jsonify, send_file, render_template, redirect, url_for
+from .form.form import UserForm
 import matplotlib
+
+load_dotenv(".env")
+
+app = Flask(__name__)
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
 # Set the backend before importing pyplot / Needed for send_file
 matplotlib.use("Agg")
-app = Flask(__name__)
 
 
-@app.route("/", methods=["GET"])
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
+    form = UserForm()
+
+    if form.validate_on_submit():
+        data = {
+            "company_name": form.company_name.data,
+            "job_title": form.job_title.data,
+            "job_href": form.job_href.data,
+            "location": form.location.data,
+            "currency": form.currency.data,
+            "starting_salary": form.starting_salary.data,
+            "max_salary": form.max_salary.data,
+        }
+        post(db_connection, data)
+        return redirect(url_for("index"))
+
+    return render_template("index.html", form=form)
 
 
 @app.route("/salary_api", methods=["GET"])

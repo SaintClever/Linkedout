@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Linkedout</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
 </head>
 
 <body>
@@ -15,7 +16,7 @@
 
   <a href="{{ url_for('salary_api') }}" target="_blank">Salary API</a><br>
 
-  <img style="width: 100%" src="data:image/png;base64,{{ image_data }}" alt="Job Salaries Plot">
+  <img src="data:image/png;base64,{{ image_data }}" alt="Job Salaries Plot">
 </body>
 
 </html>
