@@ -34,7 +34,7 @@ pguser: str = os.getenv("PGUSER")
 pghost: str = os.getenv("PGHOST")
 pgdatabase: str = os.getenv("PGDATABASE")
 pgpassword: str = os.getenv("PGPASSWORD")
-# pgport: str = os.getenv("PGPORT")
+pgport: str = os.getenv("PGPORT")
 
 
 engine = {
@@ -42,6 +42,7 @@ engine = {
     "pghost": pghost,
     "pgdatabase": pgdatabase,
     "pgpassword": pgpassword,
+    "pgport": pgport,
 }
 
 
@@ -51,7 +52,7 @@ def connect_to_db():
         host=engine["pghost"],
         database=engine["pgdatabase"],
         password=engine["pgpassword"],
-        # port=pgport,
+        port=engine["pgport"],
     )
     return conn
 
