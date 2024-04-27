@@ -63,3 +63,6 @@ Flask:
   #     "starting_salary": 100000,
   #     "max_salary": 750000
   # }
+
+deploy on render:
+gunicorn api.app:app
