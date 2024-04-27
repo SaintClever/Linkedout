@@ -1,4 +1,3 @@
-# import random
 from .fetch_data import dataframe
 import pandas as pd
 
