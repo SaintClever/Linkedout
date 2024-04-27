@@ -6,7 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-# NOTE: Incomplete
+# NOTE: Make into seperate files
 def fetch_latest_data(db_connection):
     # conn = db_connection
     # cursor = conn.cursor(cursor_factory=RealDictCursor)
@@ -19,7 +19,7 @@ def fetch_latest_data(db_connection):
 
     conn = db_connection
     with conn.cursor(cursor_factory=RealDictCursor) as cursor:
-        query = """SELECT * FROM jobs;"""
+        query = """SELECT * FROM jobs ORDER BY scrape_time DESC LIMIT 25;"""
         cursor.execute(query)
         data = cursor.fetchall()
 
@@ -81,22 +81,17 @@ def create_salary_plot():
         height=0.4,  # Adjust the height of the bars
     )
 
-    # Adjust x-axis tick labels
-    ax.set_yticklabels(
-        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
-        # rotation=45,  # Rotate the labels by 45 degrees
-        horizontalalignment="right",  # Align the labels to the right
-        fontsize=10,  # Adjust the font size of the labels
+    ax.set_yticks(
+        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"]
     )
 
     # Add labels and legend
     ax.set_xlabel("Salaries")
     ax.set_ylabel("Companies - Jobs - Locations")
+    ax.grid()
     ax.legend()
-
-    # Show plot
-    plt.tight_layout()  # Adjust layout to prevent labels from overlapping
-
+    plt.tight_layout()
+    plt.close("all")
     return fig
 
 

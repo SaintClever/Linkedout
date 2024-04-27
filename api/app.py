@@ -8,8 +8,6 @@ from flask import Flask, request, jsonify, send_file
 import matplotlib
 
 matplotlib.use("Agg")  # Set the backend before importing pyplot / Needed for send_file
-
-
 app = Flask(__name__)
 
 
