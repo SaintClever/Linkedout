@@ -29,38 +29,7 @@ load_dotenv(".env")
 # db_connection = connect_to_db()
 
 
-# # neon.tech psql
-# pguser: str = os.getenv("PGUSER")
-# pghost: str = os.getenv("PGHOST")
-# pgdatabase: str = os.getenv("PGDATABASE")
-# pgpassword: str = os.getenv("PGPASSWORD")
-# # pgport: str = os.getenv("PGPORT")
-
-
-# engine = {
-#     "pguser": pguser,
-#     "pghost": pghost,
-#     "pgdatabase": pgdatabase,
-#     "pgpassword": pgpassword,
-#     # "pgport": pgport,
-# }
-
-
-# def connect_to_db():
-#     conn = psycopg2.connect(
-#         user=engine["pguser"],
-#         host=engine["pghost"],
-#         database=engine["pgdatabase"],
-#         password=engine["pgpassword"],
-#         # port=engine["pgport"],
-#     )
-#     return conn
-
-
-
-# db_connection = connect_to_db()
-
-
+# neon.tech psql
 pguser: str = os.getenv("PGUSER")
 pghost: str = os.getenv("PGHOST")
 pgdatabase: str = os.getenv("PGDATABASE")
@@ -76,4 +45,16 @@ engine = {
     # "pgport": pgport,
 }
 
-db_connection = f"postgresql://{engine["pguser"]}:{engine["pgpassword"]}@{engine["pghost"]}/{engine["pgdatabase"]}?sslmode=require"
+
+def connect_to_db():
+    conn = psycopg2.connect(
+        user=engine["pguser"],
+        host=engine["pghost"],
+        database=engine["pgdatabase"],
+        password=engine["pgpassword"],
+        # port=engine["pgport"],
+    )
+    return conn
+
+
+db_connection = connect_to_db()
