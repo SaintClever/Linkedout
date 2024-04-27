@@ -1,5 +1,4 @@
-import io
-import base64
+import io, base64
 from country.codes import country_codes
 from currency.codes import currency_codes
 from database.database import db_connection

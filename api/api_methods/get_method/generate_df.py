@@ -24,12 +24,12 @@ def generate(dataframe):
             break
 
     data = {
-        "company_names": company_names,
-        "job_titles": job_titles,
-        "locations": locations,
-        "currencies": currencies,
-        "starting_salaries": starting_salaries,
-        "max_salaries": max_salaries,
+        "company_name": company_names,
+        "job_title": job_titles,
+        "location": locations,
+        "currency": currencies,
+        "starting_salary": starting_salaries,
+        "max_salary": max_salaries,
     }
 
     return pd.DataFrame(data)

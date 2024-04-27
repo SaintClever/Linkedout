@@ -8,24 +8,22 @@ def create_plot(df):
     fig, ax = plt.subplots(figsize=(15, 8))
 
     ax.barh(
-        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
-        df["max_salaries"],
-        label="Max Salaries",
+        df["company_name"] + " - " + df["job_title"] + ": " + df["location"],
+        df["max_salary"],
+        label="Max Salary",
         color=random.choice(colors),
         height=0.4,
     )
 
     ax.barh(
-        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
-        df["starting_salaries"],
-        label="Starting Salaries",
+        df["company_name"] + " - " + df["job_title"] + ": " + df["location"],
+        df["starting_salary"],
+        label="Starting Salary",
         color=random.choice(colors),
         height=0.4,
     )
 
-    ax.set_yticks(
-        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"]
-    )
+    ax.set_yticks(df["company_name"] + " - " + df["job_title"] + ": " + df["location"])
 
     ax.set_xlabel("Salaries")
     ax.set_ylabel("Companies - Jobs - Locations")
