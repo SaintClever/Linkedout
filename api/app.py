@@ -1,10 +1,12 @@
 import io
+import base64
 from country.codes import country_codes
 from currency.codes import currency_codes
 from database.database import db_connection
 from .api_methods.post import post
 from .api_methods.get_method.get import salary_plot
-from flask import Flask, request, jsonify, send_file
+from .api_methods.get_method.generate_df import df
+from flask import Flask, request, jsonify, send_file, render_template
 import matplotlib
 
 # Set the backend before importing pyplot / Needed for send_file
@@ -12,15 +14,25 @@ matplotlib.use("Agg")
 app = Flask(__name__)
 
 
+@app.route("/", methods=["GET"])
+def index():
+    return render_template("index.html")
+
+
+@app.route("/salary_api", methods=["GET"])
+def salary_api():
+    api = df.to_dict(orient="records")
+    return jsonify(api)
+
+
 @app.route("/save_data", methods=["POST"])
 def save_data():
     data = request.json
 
     try:
-        """
-        Ensure inserted locations and country codes
-        are within country_codes and currency_codes
-        """
+
+        # Ensure inserted locations and country codes
+        # are within country_codes and currency_codes
         if (
             request.is_json
             and data.get("location").casefold() in country_codes
@@ -47,7 +59,11 @@ def job_salaries():
     buf.seek(0)
 
     # Send the buffer as a response
-    return send_file(buf, mimetype="image/png")
+    # return send_file(buf, mimetype="image/png")
+
+    # Encode the image data as base64
+    image_data = base64.b64encode(buf.getvalue()).decode("utf-8")
+    return render_template("image.html", image_data=image_data)
 
 
 if __name__ == "__main__":

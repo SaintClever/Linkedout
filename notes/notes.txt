@@ -2,6 +2,8 @@ f"https://himalayas.app/jobs/countries/{location}/{job_title}"
 f"https://www.roberthalf.com/us/en/jobs/{location}/{job_title}"
 f"https://jobs.smartrecruiters.com/?keyword={job_title}{location}"
 
+Flush Flask Sockets:
+chrome://net-internals/#sockets
 
 Commonality between URL sources and Model structure:
 - company name

@@ -1,0 +1,21 @@
+<!-- templates/image.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linkedout</title>
+</head>
+
+<body>
+  <h3>Linkedout</h3>
+  <a href="{{ url_for('index') }}" target="_blank">Index</a><br>
+
+  <a href="{{ url_for('salary_api') }}" target="_blank">Salary API</a><br>
+
+  <img style="width: 100%" src="data:image/png;base64,{{ image_data }}" alt="Job Salaries Plot">
+</body>
+
+</html>
