@@ -7,7 +7,7 @@ from .generate_df import df
 
 def create_plot(df):
     differ = [
-        f"{max_salary - df["starting_salary"][i]:,}"
+        f"{max_salary - df['starting_salary'][i]:,}"
         for i, max_salary in enumerate(df["max_salary"])
     ]
 

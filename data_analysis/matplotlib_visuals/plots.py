@@ -5,11 +5,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 differ = [
-    f"{max_salary - df["starting_salaries"][i]:,}"
-    for i, max_salary in enumerate(df["max_salaries"])
+    f"{max_salary - df['starting_salary'][i]:,}"
+    for i, max_salary in enumerate(df["max_salary"])
 ]
 
 difference = pd.DataFrame({"difference": differ})
+
 
 # Line Plot
 def line_plot(df):
