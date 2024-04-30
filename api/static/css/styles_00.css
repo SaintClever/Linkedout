@@ -1,0 +1,98 @@
+/* style.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  padding: 20px;
+}
+
+h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+a {
+  display: block;
+  margin-bottom: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+label {
+  display: inline-block;
+  width: 120px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="submit"] {
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #007bff;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.5;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #007bff;
+  color: white;
+  font-size: 12px;
+  padding: 12px 25px;
+}

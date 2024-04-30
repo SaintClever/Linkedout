@@ -1,0 +1,30 @@
+<!-- templates/image.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linkedout</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+
+<body>
+  <h3><a href="https://www.linkedin.com/in/parchment/" target="_blank">Linkedout</a></h3>
+  <a href="{{ url_for('index') }}">Index</a><br>
+
+  <a href="{{ url_for('salary_api') }}" target="_blank">Salary API</a><br>
+
+  <div class="container">
+    <img id="imageToDownload" class="image" src="data:image/png;base64,{{ image_data }}" alt="Job Salaries Plot"
+      style="width:100%">
+    <div id="downloadButton" class="middle">
+      <div class="text">Download</div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+</body>
+
+</html>
