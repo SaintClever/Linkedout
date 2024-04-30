@@ -84,7 +84,3 @@ def job_salaries():
     # Encode the image data as base64
     image_data = base64.b64encode(buf.getvalue()).decode("utf-8")
     return render_template("image.html", image_data=image_data)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
