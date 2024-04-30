@@ -1,14 +1,27 @@
 import random
 from .colors import colors
 from data_analysis.pandas_data.data_to_csv import df
+import pandas as pd
 import matplotlib.pyplot as plt
 
+differ = [
+    f"{max_salary - df["starting_salaries"][i]:,}"
+    for i, max_salary in enumerate(df["max_salaries"])
+]
+
+difference = pd.DataFrame({"difference": differ})
 
 # Line Plot
 def line_plot(df):
     plt.figure(figsize=(15, 8))
     plt.plot(
-        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
+        df["company_names"]
+        + " - "
+        + df["job_titles"]
+        + ": "
+        + df["locations"]
+        + " / "
+        + difference["difference"],
         df["max_salaries"],
         label="Max Salaries",
         color=random.choice(colors),
@@ -16,7 +29,13 @@ def line_plot(df):
         linestyle="-",
     )
     plt.plot(
-        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
+        df["company_names"]
+        + " - "
+        + df["job_titles"]
+        + ": "
+        + df["locations"]
+        + " / "
+        + difference["difference"],
         df["starting_salaries"],
         label="Starting Salaries",
         color=random.choice(colors),
@@ -41,14 +60,26 @@ def line_plot(df):
 def bar_plot(df):
     plt.figure(figsize=(15, 8))
     plt.bar(
-        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
+        df["company_names"]
+        + " - "
+        + df["job_titles"]
+        + ": "
+        + df["locations"]
+        + " / "
+        + difference["difference"],
         df["max_salaries"],
         label="Max Salaries",
         color=random.choice(colors),
         linestyle="-",
     )
     plt.bar(
-        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
+        df["company_names"]
+        + " - "
+        + df["job_titles"]
+        + ": "
+        + df["locations"]
+        + " / "
+        + difference["difference"],
         df["starting_salaries"],
         label="Starting Salaries",
         color=random.choice(colors),
@@ -75,13 +106,25 @@ def barh_plot(df):
 
     plt.figure(figsize=(15, 8))
     plt.barh(
-        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
+        df["company_names"]
+        + " - "
+        + df["job_titles"]
+        + ": "
+        + df["locations"]
+        + " / "
+        + difference["difference"],
         df["max_salaries"],
         label="Max Salaries",
         color=random.choice(colors),
     )
     plt.barh(
-        df["company_names"] + " - " + df["job_titles"] + ": " + df["locations"],
+        df["company_names"]
+        + " - "
+        + df["job_titles"]
+        + ": "
+        + df["locations"]
+        + " / "
+        + difference["difference"],
         df["starting_salaries"],
         label="Starting Salaries",
         color=random.choice(colors),

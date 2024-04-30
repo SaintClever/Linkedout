@@ -122,9 +122,6 @@ id,company_name,job_title,job_href,location,currency,starting_salary,max_salary,
 121,Perficient,Healthcare Data Modeler/Data Architect - REMOTE,https://himalayas.app/companies/perficient/jobs/healthcare-data-modeler-data-architect-remote,US,USD,82000,178000,2024-04-24 13:46:39.835773
 122,Chapter,Medicare Advisor- Remote/ Charlotte,https://himalayas.app/companies/chapter/jobs/medicare-advisor-remote-charlotte-5087360176,US,USD,52000,140000,2024-04-24 13:46:39.835773
 123,Providence,Accounts Receivable Representative *Remote*,https://himalayas.app/companies/providence/jobs/accounts-receivable-representative-remote-2536073445,US,USD,17000,37000,2024-04-24 13:46:39.835773
-124,linkedout,Python Developer,https://www.linkedout.com/,Remote,USD,100000,750000,2024-04-26 03:00:54.417629
-125,linkedout,JavaScript Developer,https://www.linkedout.com/,Remote,USD,100000,650000,2024-04-26 03:10:24.226876
-126,linkedout,Software Developer,https://www.linkedout.com/,Remote,USD,100000,150000,2024-04-26 12:06:30.421621
-127,linkedout,Software Engineer,https://www.linkedout.com/,Remote,USD,150000,250000,2024-04-26 12:08:15.272504
-128,linkedout,Software Engineer,https://www.linkedout.com/,Remote,7,150000,250000,2024-04-26 12:09:08.475566
-129,linkedout,Software Engineer,https://www.linkedout.com/,Remote,8,150000,250000,2024-04-26 14:07:26.402840
+151,Linkedout,Python Developer,https://github.com/SaintClever,Remote,USD,75000,100000,2024-04-28 11:33:32.557092
+152,WingMan,Automation Engineer,wingman.com,Remote,USD,75000,150000,2024-04-29 19:08:22.545993
+154,Danscomp,Julia Engineer,danscomp.com,Remote,USD,65000,85000,2024-04-30 02:26:09.559269

@@ -3,3 +3,5 @@
 
 
 ![linkedout](assets/images/linkedout_00.gif "linkedout")
+
+![linkedout](assets/images/linkedout_00.png "linkedout")
