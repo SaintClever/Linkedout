@@ -104,7 +104,3 @@ def download_csv():
         as_attachment=True,
         download_name="processed_job_data.csv",
     )
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
