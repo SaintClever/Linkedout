@@ -74,13 +74,37 @@ def save_data():
 @app.route("/job_salaries", methods=["GET"])
 def job_salaries():
     # Generate and save the plot to a bytes buffer
-    buf = io.BytesIO()
-    salary_plot.savefig(buf, format="png")
-    buf.seek(0)
+    buffer = io.BytesIO()
+    salary_plot.savefig(buffer, format="png")
+    buffer.seek(0)
 
     # Send the buffer as a response
     # return send_file(buf, mimetype="image/png")
 
     # Encode the image data as base64
-    image_data = base64.b64encode(buf.getvalue()).decode("utf-8")
+    image_data = base64.b64encode(buffer.getvalue()).decode("utf-8")
     return render_template("image.html", image_data=image_data)
+
+
+@app.route("/download_csv", methods=["GET"])
+def download_csv():
+    # Create stringIO object to hold CSV data
+    buffer = io.BytesIO()
+
+    # Use Pandas to write the DataFrame to the StringIO
+    df.to_csv(buffer, index=False)
+
+    # Set the StringIO
+    buffer.seek(0)
+
+    # Return the CSV file response
+    return send_file(
+        buffer,
+        mimetype="text/csv",
+        as_attachment=True,
+        download_name="processed_job_data.csv",
+    )
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
